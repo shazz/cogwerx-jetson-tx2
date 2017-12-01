@@ -7,11 +7,12 @@ MAINTAINER nuculur@gmail.com
 
 #COPY *.sh /tmp/
 RUN apt-get update && apt-get install -y bzip2 curl unp sudo
-
 WORKDIR /tmp
-RUN curl -s http://AFED.http.sjc01.cdn.softlayer.net/jetpack3.0/Tegra186_Linux_R27.1.0_aarch64.tbz2 | tar --use-compress-prog=bzip2 -xv
 
+# Resultant file: Tegra186_Linux_R28.1.0_aarch64.tbz2
+RUN curl -sL http://developer.nvidia.com/embedded/dlc/l4t-jetson-tx2-driver-package-28-1 | tar xvfj -
+RUN chown root /etc/passwd /etc/sudoers /usr/lib/sudo/sudoers.so /etc/sudoers.d/README
 RUN /tmp/Linux_for_Tegra/apply_binaries.sh -r /
+RUN  rm -fr /tmp/*
 
-#RUN rm -fr /tmp/*
 #RUN apt-get clean

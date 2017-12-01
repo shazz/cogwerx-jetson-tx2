@@ -1,4 +1,4 @@
-FROM openhorizon jetson-tx2
+FROM openhorizon/aarch64-tx2
 
 #AUTHOR bmwshop@gmail.com
 MAINTAINER nuculur@gmail.com

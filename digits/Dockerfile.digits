@@ -1,4 +1,4 @@
-FROM openhorizon/caffe-nvidia-tx2
+FROM openhorizon/aarch64-tx2-nvidia-caffe
 
 #AUTHOR bmwshop@gmail.com
 MAINTAINER nuculur@gmail.com

@@ -1,4 +1,4 @@
-FROM openhorizon/cuda-tx2-cudabase
+FROM openhorizon/aarch64-tx2-cudabase
 
 #AUTHOR bmwshop@gmail.com
 MAINTAINER nuculur@gmail.com
