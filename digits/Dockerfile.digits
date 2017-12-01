@@ -5,7 +5,9 @@ MAINTAINER nuculur@gmail.com
 
 WORKDIR /
 RUN apt-get update
-RUN apt-get install --no-install-recommends -y git graphviz python-dev python-flask python-flaskext.wtf python-gevent python-h5py python-numpy python-pil python-pip python-protobuf python-scipy python-tk
+RUN apt-get install -y python-pip
+RUN pip install --upgrade pip
+RUN apt-get install --no-install-recommends -y git graphviz python-dev python-flask python-flaskext.wtf python-gevent python-h5py python-numpy python-pil python-protobuf python-scipy python-tk
 
 ENV CAFFE_ROOT /caffe
 ENV DIGITS_ROOT /digits

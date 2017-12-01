@@ -36,7 +36,7 @@ docker build -f Dockerfile.caffe -t openhorizon/aarch64-tx2-caffe .
 ```
 
 To build a container with NVIDIA's Caffe: 
-1. First build the Jetson TX2 container with CUDNN: 'jetson-tx2' (see above)
+1. First build the Jetson TX2 container with CUDNN: 'aarch64-tx2' (see above)
 2. Build the NVIDIA Caffe container:
 ```
 docker build -f Dockerfile.nvidia.caffe -t openhorizon/aarch64-tx2-nvidia-caffe .
@@ -52,7 +52,7 @@ docker build -f Dockerfile.digits -t openhorizon/aarch64-tx2-digits .
 
 ### Darknet with Yolo
 To build darknet with Yolo:
-1. First build the 'jetson-tx2' container (see above)
+1. First build the 'aarch64-tx2' container (see above)
 2. Build darknet container:
 ```
 cd darknet
