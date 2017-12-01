@@ -1,4 +1,7 @@
-FROM openhorizon/tensorrt-tx2
+#MAINTAINER nuculur@gmail.com
+
+# Base image
+FROM openhorizon/aarch64-tx2-tensorrt
 
 # to run, do xhost + on the host then
 # docker run --privileged -v /dev:/dev -e DISPLAY=$DISPLAY -v /tmp:/tmp --net=host --ipc=host --rm -ti openhorizon/dustyinference bash -c "cd /jetson-inference/build/aarch64/bin && ./imagenet-camera"
@@ -21,3 +24,4 @@ WORKDIR /jetson-inference
 ENV LD_LIBRARY_PATH $LD_LIBRARY_PATH:/usr/lib/aarch64-linux-gnu/tegra-egl/
 #COPY bashrc /root/.bashrc
 RUN echo "export LD_LIBRARY_PATH=/usr/local/cuda-8.0/lib64:/usr/lib/aarch64-linux-gnu/tegra:/usr/lib/aarch64-linux-gnu/tegra-egl/" >> /root/.bashrc
+RUN apt-get clean
