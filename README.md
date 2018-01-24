@@ -14,7 +14,7 @@ These docker images are also available at the public bluehorizon docker hub [rep
 1. Clone this repo locally
 2. Build the base Jetson TX2 image. This base image is the prerequisite for later containers like Caffe, Darknet, and other deep learning frameworks
 ```
-docker build -f Dockerfile.base -t openhorizon/aarch64-tx2 .
+docker build -f Dockerfile.cudabase -t openhorizon/aarch64-tx2-cudabase .
 ```
 
 This CUDNN container is the basis of builds for the containers below:
@@ -34,7 +34,7 @@ docker build -f Dockerfile.caffe -t openhorizon/aarch64-tx2-caffe .
 ```
 
 To build a container with NVIDIA's Caffe: 
-1. First build the Jetson TX2 container with CUDNN: 'aarch64-tx2' (see above)
+1. First build the Jetson TX2 Cudabase container with CUDNN (see above)
 2. Build the NVIDIA Caffe container:
 ```
 docker build -f Dockerfile.nvidia.caffe -t openhorizon/aarch64-tx2-nvidia-caffe .
@@ -42,7 +42,7 @@ docker build -f Dockerfile.nvidia.caffe -t openhorizon/aarch64-tx2-nvidia-caffe 
 
 ### NVIDIA DIGITS
 To build NVIDIA DIGITS:
-1. First build the NVIDIA Caffe container 'aarch64-tx2-nvidia-caffe' (see above)
+1. First build the NVIDIA Caffe container (see above)
 2. Build the NVIDIA DIGITS container:
 ```
 docker build -f Dockerfile.digits -t openhorizon/aarch64-tx2-digits .
@@ -50,7 +50,7 @@ docker build -f Dockerfile.digits -t openhorizon/aarch64-tx2-digits .
 
 ### Darknet with Yolo
 To build darknet with Yolo:
-1. First build the 'aarch64-tx2' container (see above)
+1. First build the Jetson TX2 Cudabase container with CUDNN (see above)
 2. Build darknet container:
 ```
 cd darknet
@@ -80,7 +80,7 @@ Base drivers container (smallest): aarch64-tx2-drivers
 docker build -f Dockerfile.drivers -t openhorizon/aarch64-tx2-drivers .
 ```
 
-Base CUDA container: openhorizon/aarch64-tx2-cudabase (for OpenCV4Tegra build)
+Base CUDA container: openhorizon/aarch64-tx2-cudabase (for OpenCV4Tegra build, and other builds requiring CUDA/CUDNN)
 ```
 docker build -f Dockerfile.cudabase -t openhorizon/aarch64-tx2-cudabase .
 cd caffe
