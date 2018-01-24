@@ -5,8 +5,9 @@
 * CUDA, CUDNN, OpenCV and supporting libs, full and lean variants
 * Caffe deep learning framework
 * Darknet deep learning framework with Yolo
+* NVIDIA Tools: DIGITS, and TensorRT library containers
 
-These docker images are also available at the public bluehorizon docker hub [repo](https://hub.docker.com/u/openhorizon/) as part of the [Horizon](https://bluehorizon.network) project.
+These docker images are also available at the public openhorizon Docker [registry](https://hub.docker.com/u/openhorizon/) as part of the [Horizon](https://bluehorizon.network) project.
 
 
 #### To build docker images (some successive images depend on previous. See below for prereqs)
