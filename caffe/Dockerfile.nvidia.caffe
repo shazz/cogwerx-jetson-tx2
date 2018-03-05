@@ -13,7 +13,10 @@ RUN apt-get install -y libopencv-dev
 # Install dependencies
 RUN apt-get install -y --no-install-recommends build-essential cmake git gfortran libatlas-base-dev libboost-filesystem-dev libboost-python-dev libboost-system-dev libboost-thread-dev libgflags-dev libgoogle-glog-dev libhdf5-serial-dev libleveldb-dev liblmdb-dev libprotobuf-dev libsnappy-dev protobuf-compiler python-all-dev python-dev python-h5py python-matplotlib python-numpy python-opencv python-pil python-pip python-protobuf python-scipy python-skimage python-sklearn python-setuptools 
 RUN pip install --upgrade pip
-RUN git clone http://github.com/NVIDIA/caffe
+RUN git clone http://github.com/NVIDIA/caffe -b 'caffe-0.15'
+RUN apt-get install -y wget
+RUN wget https://raw.githubusercontent.com/shazz/cogwerx-jetson-tx2/master/caffe/mutex.patch
+RUN patch caffe/3rdparty/cub/host/mutex.cuh mutex2.patch
 
 # Install Caffe
 WORKDIR /caffe/python
